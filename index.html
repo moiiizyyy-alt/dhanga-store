@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dhaga – Everyday clothing, cut for Lahore summers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d1f4f;--paper:#f3f2f8;--card:#fff;--sun:#f4b52e;--mute:#62647f;--line:#dcdbe8}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5}
+h1,h2,h3,.logo{font-family:'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.7rem;font-weight:800}
+nav{display:flex;gap:24px;font-weight:500}
+nav a:hover{text-decoration:underline;text-decoration-color:var(--sun);text-decoration-thickness:3px;text-underline-offset:6px}
+.cartbtn{background:var(--ink);color:#fff;border:0;border-radius:99px;padding:9px 18px;font-weight:600}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:48px 0 56px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.8rem);line-height:1;font-weight:800}
+.hero p{margin:20px 0 28px;color:var(--mute);max-width:44ch;font-size:1.1rem}
+.cta{display:inline-block;background:var(--sun);color:var(--ink);font-weight:700;padding:15px 30px;border-radius:99px;border:0}
+.cta:hover{filter:brightness(.95)}
+.heroimg{aspect-ratio:4/5;border-radius:220px 220px 20px 20px;overflow:hidden;background:var(--ink)}
+.img{width:100%;height:100%;object-fit:cover;display:block;background:linear-gradient(160deg,#c9c8e6,#8f90c4)}
+.perks{display:flex;gap:28px;flex-wrap:wrap;padding:16px 0 40px;color:var(--mute);font-weight:500}
+.perks b{color:var(--ink)}
+section{padding:24px 0 56px}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px;gap:12px;flex-wrap:wrap}
+.head h2{font-size:2.1rem}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden}
+.cat span{position:absolute;left:12px;bottom:12px;background:#fff;border-radius:99px;padding:6px 16px;font-weight:600}
+.cat .img{transition:transform .4s}.cat:hover .img{transform:scale(1.05)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:transparent;border:1.5px solid var(--ink);color:var(--ink);border-radius:99px;padding:6px 16px;font-weight:500}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 18px}
+.prod .pic{aspect-ratio:3/4;border-radius:14px;overflow:hidden;position:relative}
+.tag{position:absolute;top:10px;left:10px;background:var(--sun);font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:99px}
+.prod h3{font-size:1.05rem;margin-top:12px;font-weight:700}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
+.price{color:var(--mute);font-weight:500}
+.add{background:var(--card);border:1.5px solid var(--ink);color:var(--ink);border-radius:99px;padding:5px 14px;font-weight:600;font-size:.9rem}
+.add:hover{background:var(--ink);color:#fff}
+.story{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:#fff;border-radius:24px;overflow:hidden}
+.story .img{min-height:360px}
+.story div.t{padding:48px;align-self:center}
+.story h2{font-size:2.2rem;margin-bottom:14px}
+.story p{color:#c9caea;max-width:46ch}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+aside{position:fixed;top:0;right:0;height:100%;width:min(380px,100%);background:var(--card);box-shadow:-8px 0 30px rgba(29,31,79,.18);transform:translateX(105%);transition:transform .3s;z-index:10;padding:24px;display:flex;flex-direction:column}
+aside.open{transform:none}
+aside ul{list-style:none;padding:0;margin:16px 0;flex:1;overflow:auto}
+aside li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.x{background:none;border:0;font-size:1.6rem;float:right;color:var(--ink)}
+.empty{color:var(--mute)}
+@media(max-width:860px){
+ .hero,.story{grid-template-columns:1fr}.heroimg{max-width:420px}
+ .cats,.grid{grid-template-columns:repeat(2,1fr)}
+ nav{display:none}.story div.t{padding:28px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#top">Dhaga</a>
+  <nav><a href="#shop">Women</a><a href="#shop">Men</a><a href="#shop">Accessories</a><a href="#story">Our story</a></nav>
+  <button class="cartbtn" id="openCart">Cart (<span id="count">0</span>)</button>
+</div></header>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Clothes that keep up with your day.</h1>
+      <p>Breathable cotton and linen, cut for hot weather and long commutes. Free delivery across Pakistan on orders over Rs 5,000.</p>
+      <a class="cta" href="#shop">Shop new arrivals</a>
+    </div>
+    <div class="heroimg"><img class="img" data-k="0" alt="Model wearing a light summer outfit" width="640" height="800"></div>
+  </div>
+  <div class="perks"><span><b>Free delivery</b> over Rs 5,000</span><span><b>7-day</b> easy exchange</span><span><b>Cash on delivery</b> available</span></div>
+
+  <section>
+    <div class="head"><h2>Shop by category</h2></div>
+    <div class="cats">
+      <a class="cat" href="#shop"><img class="img" data-k="1" alt="" width="400" height="530"><span>Kurtas</span></a>
+      <a class="cat" href="#shop"><img class="img" data-k="2" alt="" width="400" height="530"><span>Denim</span></a>
+      <a class="cat" href="#shop"><img class="img" data-k="3" alt="" width="400" height="530"><span>Shirts</span></a>
+      <a class="cat" href="#shop"><img class="img" data-k="4" alt="" width="400" height="530"><span>Bags</span></a>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="head">
+      <h2>New arrivals</h2>
+      <div class="filters" id="filters">
+        <button class="chip" aria-pressed="true" data-f="all">All</button>
+        <button class="chip" aria-pressed="false" data-f="Women">Women</button>
+        <button class="chip" aria-pressed="false" data-f="Men">Men</button>
+        <button class="chip" aria-pressed="false" data-f="Accessories">Accessories</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="story">
+    <div class="story">
+      <img class="img" data-k="5" alt="Fabric and tailoring" width="640" height="480">
+      <div class="t"><h2>Made slowly, worn for years.</h2><p>We work with small workshops and choose fabrics that soften with every wash. Fewer drops, better stitching, and prices that stay fair.</p></div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap"><footer><span class="logo">Dhaga</span><span>Lahore, Pakistan &middot; hello@dhaga.example</span></footer></div>
+
+<aside id="cart" aria-label="Shopping cart">
+  <button class="x" id="closeCart" aria-label="Close cart">&times;</button>
+  <h2>Your cart</h2>
+  <ul id="items"></ul>
+  <p><b>Total: <span id="total">Rs 0</span></b></p>
+  <button class="cta" style="margin-top:14px">Checkout</button>
+</aside>
+
+<script>
+/* ---- IMAGES ----
+   Real fashion photos load from these URLs. To use your own,
+   replace any URL below (or put files in an /images folder). */
+var kw = ['fashion,model','kurta,fashion','jeans,denim','shirt,fashion','handbag','fabric,tailor'];
+function photo(i, w, h, tags){ return 'https://loremflickr.com/'+w+'/'+h+'/'+(tags||kw[i])+'?lock='+(i+11); }
+document.querySelectorAll('img[data-k]').forEach(function(im){
+  var i = +im.dataset.k;
+  im.src = photo(i, im.width, im.height);
+  im.loading = i ? 'lazy' : 'eager';
+  im.onerror = function(){ im.removeAttribute('src'); };
+});
+
+var products = [
+  {n:'Linen kurta',p:6900,c:'Women',t:'kurta,woman,fashion',tag:'New'},
+  {n:'Wide-leg trousers',p:5400,c:'Women',t:'trousers,fashion'},
+  {n:'Cotton shalwar kameez',p:8200,c:'Men',t:'men,traditional,clothing'},
+  {n:'Oxford shirt',p:4800,c:'Men',t:'shirt,man,fashion',tag:'Bestseller'},
+  {n:'Straight-fit denim',p:7500,c:'Men',t:'jeans,man'},
+  {n:'Printed lawn dupatta',p:3900,c:'Women',t:'scarf,fashion'},
+  {n:'Canvas tote bag',p:2900,c:'Accessories',t:'tote,bag'},
+  {n:'Leather sandals',p:5200,c:'Accessories',t:'sandals,shoes',tag:'New'}
+];
+var cart = {}, filter = 'all';
+function fmt(n){ return 'Rs ' + n.toLocaleString('en-PK'); }
+
+function render(){
+  var g = document.getElementById('grid'); g.innerHTML = '';
+  products.forEach(function(p, idx){
+    if(filter !== 'all' && p.c !== filter) return;
+    var d = document.createElement('article'); d.className = 'prod';
+    d.innerHTML = '<div class="pic">'+(p.tag?'<span class="tag">'+p.tag+'</span>':'')+
+      '<img class="img" alt="'+p.n+'" width="400" height="530" loading="lazy"></div>'+
+      '<h3>'+p.n+'</h3><div class="row"><span class="price">'+fmt(p.p)+'</span>'+
+      '<button class="add" data-i="'+idx+'">Add to cart</button></div>';
+    var im = d.querySelector('img');
+    im.src = photo(idx+20, 400, 530, p.t);
+    im.onerror = function(){ im.removeAttribute('src'); };
+    g.appendChild(d);
+  });
+}
+document.getElementById('filters').onclick = function(e){
+  var b = e.target.closest('.chip'); if(!b) return;
+  filter = b.dataset.f;
+  this.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed', c === b); });
+  render();
+};
+document.getElementById('grid').onclick = function(e){
+  var b = e.target.closest('.add'); if(!b) return;
+  var i = b.dataset.i; cart[i] = (cart[i]||0) + 1; updateCart();
+  b.textContent = 'Added'; setTimeout(function(){ b.textContent = 'Add to cart'; }, 1000);
+};
+function updateCart(){
+  var n = 0, t = 0, ul = document.getElementById('items'); ul.innerHTML = '';
+  Object.keys(cart).forEach(function(i){
+    var p = products[i], q = cart[i]; n += q; t += q * p.p;
+    ul.innerHTML += '<li><span>'+p.n+' &times; '+q+'</span><span>'+fmt(p.p*q)+'</span></li>';
+  });
+  if(!n) ul.innerHTML = '<li class="empty">Your cart is empty. Add something from New arrivals.</li>';
+  document.getElementById('count').textContent = n;
+  document.getElementById('total').textContent = fmt(t);
+}
+var cartEl = document.getElementById('cart');
+document.getElementById('openCart').onclick = function(){ cartEl.classList.add('open'); };
+document.getElementById('closeCart').onclick = function(){ cartEl.classList.remove('open'); };
+render(); updateCart();
+</script>
+</body>
+</html>
